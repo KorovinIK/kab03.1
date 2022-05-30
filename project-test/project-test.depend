@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1653903829 source:d:\labs rpsou\lab03.2\project\histogram.cpp
+	"histogram.h"
+
+1653903920 d:\labs rpsou\lab03.2\project\histogram.h
+	<iostream>
+	<vector>
+	<string>
+
