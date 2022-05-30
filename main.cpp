@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include "histogram.h"
 
-
+using namespace std;
 
 const auto MIN_IMAGE_WIDTH = 100;
 const auto MAX_IMAGE_WIDTH = 800;
