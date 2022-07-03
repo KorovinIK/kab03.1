@@ -3,9 +3,14 @@
 #include "histogram.h"
 
 const auto image_width = 400;
+const auto block_width = 15;
 
 using namespace std;
 
+struct Input {
+    vector<double> numbers;
+    size_t bin_count;
+};
 
 vector<double> input_numbers(istream& in, size_t count) {
     vector<double> result(count);
@@ -13,6 +18,23 @@ vector<double> input_numbers(istream& in, size_t count) {
         in >> result[i];
     }
     return result;
+}
+
+Input
+read_input(istream& in) {
+    Input data;
+
+    cerr << "Enter number count: ";
+    size_t number_count;
+    in >> number_count;
+
+    cerr << "Enter numbers: ";
+    data.numbers = input_numbers(in, number_count);
+
+    cerr << "Enter bin count ";
+    in >> data.bin_count;
+
+    return data;
 }
 
 vector<size_t> make_histogramm(const vector<double>& numbers, size_t bin_count){
@@ -84,34 +106,36 @@ void show_histogramm_text(const vector<size_t>& bins){
 int main()
 {
     //ввод
-    size_t number_count;
-    cerr << "Enter number count ";
-    cin >> number_count;
+    //size_t number_count;
+    //cerr << "Enter number count ";
+    //cin >> number_count;
 
-    const auto numbers = input_numbers(cin , number_count);
-    size_t bin_count;
-    cerr << "Enter bin count ";
-    cin >> bin_count;
+    //const auto numbers = input_numbers(cin , number_count);
+    //size_t bin_count;
+    //cerr << "Enter bin count ";
+    //cin >> bin_count;
 
-    const size_t MAX_TRIES = 100;
-    size_t try_counter = 0;
-    bool passed_test = false;
-    size_t block_width;
-    cerr << "Enter block width: ";
-    do
-    {
-        cin >> block_width;
-        passed_test = input_check_block_width(block_width, numbers.size());
+    const auto input = read_input(cin);
+    //var 9
+    //const size_t MAX_TRIES = 100;
+    //size_t try_counter = 0;
+    //bool passed_test = false;
+    //size_t block_width;
+    //cerr << "Enter block width: ";
+    //do
+    //{
+    //    cin >> block_width;
+    //    passed_test = input_check_block_width(block_width, numbers.size());
 
-        if(!passed_test)
-        {
-            cerr << "Block width should be in range of 3 and 30";
-        }
-        try_counter++;
-    } while(!passed_test && try_counter < MAX_TRIES);
+    //    if(!passed_test)
+    //    {
+    //        cerr << "Block width should be in range of 3 and 30";
+    //    }
+    //    try_counter++;
+    //} while(!passed_test && try_counter < MAX_TRIES);
 
     //расчет гистограммы
-    const auto bins = make_histogramm(numbers, bin_count);
+    const auto bins = make_histogramm(input.numbers, input.bin_count);
     //вывод гистограммы
     show_histogramm_svg(bins, image_width);
     return 0;
