@@ -6,6 +6,11 @@
 
 using namespace std;
 
+struct Input {
+    vector<double> numbers;
+    size_t bin_count;
+};
+
 bool input_check_block_width(size_t width, size_t numbers_count);
 void find_minmax(const vector<double>& numbers, double& min, double& max);
 void svg_begin(double width, double height);
