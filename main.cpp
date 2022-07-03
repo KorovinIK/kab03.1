@@ -7,10 +7,10 @@ const auto image_width = 400;
 using namespace std;
 
 
-vector<double> input_numbers(size_t count) {
+vector<double> input_numbers(istream& in, size_t count) {
     vector<double> result(count);
     for (size_t i = 0; i < count; i++) {
-        cin >> result[i];
+        in >> result[i];
     }
     return result;
 }
@@ -88,7 +88,7 @@ int main()
     cerr << "Enter number count ";
     cin >> number_count;
 
-    const auto numbers = input_numbers(number_count);
+    const auto numbers = input_numbers(cin , number_count);
     size_t bin_count;
     cerr << "Enter bin count ";
     cin >> bin_count;
