@@ -7,10 +7,6 @@ const auto block_width = 15;
 
 using namespace std;
 
-struct Input {
-    vector<double> numbers;
-    size_t bin_count;
-};
 
 vector<double> input_numbers(istream& in, size_t count) {
     vector<double> result(count);
@@ -135,8 +131,8 @@ int main()
     //} while(!passed_test && try_counter < MAX_TRIES);
 
     //расчет гистограммы
-    const auto bins = make_histogramm(input.numbers, input.bin_count);
+    const auto bins = make_histogramm(input.numbers , input.bin_count);
     //вывод гистограммы
-    show_histogramm_svg(bins, image_width);
+    show_histogramm_svg(bins, block_width);
     return 0;
 }
