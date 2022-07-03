@@ -17,17 +17,20 @@ vector<double> input_numbers(istream& in, size_t count) {
 }
 
 Input
-read_input(istream& in) {
+read_input(istream& in , bool prompt) {
     Input data;
 
-    cerr << "Enter number count: ";
+    if(prompt == true){
+    cerr << "Enter number count: ";}
     size_t number_count;
     in >> number_count;
 
-    cerr << "Enter numbers: ";
+    if(prompt == true){
+    cerr << "Enter numbers: ";}
     data.numbers = input_numbers(in, number_count);
 
-    cerr << "Enter bin count ";
+    if(prompt == true){
+    cerr << "Enter bin count ";}
     in >> data.bin_count;
 
     return data;
@@ -111,7 +114,7 @@ int main()
     //cerr << "Enter bin count ";
     //cin >> bin_count;
 
-    const auto input = read_input(cin);
+    const auto input = read_input(cin , true);
     //var 9
     //const size_t MAX_TRIES = 100;
     //size_t try_counter = 0;
