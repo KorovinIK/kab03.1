@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "histogram.h"
+#include <curl/curl.h>
 
 const auto image_width = 400;
 const auto block_width = 15;
@@ -104,6 +105,8 @@ void show_histogramm_text(const vector<size_t>& bins){
 
 int main()
 {
+    curl_global_init(CURL_GLOBAL_ALL);
+
     //ввод
     //size_t number_count;
     //cerr << "Enter number count ";
