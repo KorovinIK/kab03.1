@@ -32,7 +32,12 @@ double min = 0; double max = 0;
 find_minmax({9}, min, max); assert(min == 9);
 assert(max == 9);
 }
-
+void test_null(){
+double min = 0; double max = 0;
+find_minmax({}, min, max);
+assert(min == 0);
+assert(max == 0);
+}
 int
 main() {
     test_positive();
